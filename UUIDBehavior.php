@@ -17,6 +17,16 @@ class UUIDBehavior extends Behavior {
      * @var type 
      */
     public $column = 'id';
+    public $seperator = '-';
+
+    public function setSeparator($value){
+	    $this->separator= $value;
+    }
+
+    public function getSeparator(){
+	    return $this->seperator;
+    }
+
 
     /**
      * Override event() 
@@ -33,7 +43,9 @@ class UUIDBehavior extends Behavior {
      * set beforeSave() -> UUID data
      */
     public function beforeSave() {
-        $this->owner->{$this->column} = $this->owner->getDb()->createCommand("SELECT REPLACE(UUID(),'-','')")->queryScalar();
+	    if(!empty($this->separator)){
+		    $this->owner->{$this->column} = $this->owner->getDb()->createCommand("SELECT REPLACE(UUID(),'-','".$seperator."')")->queryScalar();
+	    }
     }
 
 }
