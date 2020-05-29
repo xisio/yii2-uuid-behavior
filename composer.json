@@ -1,5 +1,5 @@
 {
-    "name": "mootensai/yii2-uuid-behavior",
+    "name": "xisio/yii2-uuid-behavior",
     "type": "library",
     "description": "Set UUID before save on Yii 2 models",
     "keywords": ["Yii2","uuid","before","save","beforesave"],
